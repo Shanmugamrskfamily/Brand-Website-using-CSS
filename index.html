@@ -14,257 +14,7 @@
       integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
-    <style>
-      body {
-        font-family: "Croissant One";
-        margin: 0;
-        padding: 0;
-      }
-
-      .navbar {
-        font-family: "Dancing Script", sans-serif;
-        background-color: #333;
-      }
-
-      .navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-      }
-
-      .logo a {
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 1;
-      }
-
-      .menu-icon {
-        display: none;
-        font-size: 24px;
-        color: white;
-        cursor: pointer;
-      }
-
-      ul.navbar-menu {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 20px;
-      }
-
-      li.nav-item {
-        float: right;
-      }
-
-      li.nav-item a {
-        display: block;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-      }
-
-      ul.submenu {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        position: absolute;
-        background-color: #333;
-        display: none;
-        z-index: 1;
-      }
-
-      li.nav-item:hover ul.submenu {
-        display: block;
-      }
-
-      li.nav-item:hover ul.submenu li {
-        display: block;
-      }
-
-      ul.submenu li {
-        float: none;
-        text-align: left;
-        padding: 10px 20px;
-      }
-
-      ul.submenu li a {
-        color: white;
-        text-decoration: none;
-      }
-      .card-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-
-        /* Card styles */
-        .card {
-            position: relative;
-            width: calc(50% - 20px); /* 50% width with a little space between cards */
-            margin-bottom: 20px;
-        }
-
-        /* Card image styles */
-        .card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Card overlay styles */
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            opacity: 0; /* Initially hidden */
-            transition: opacity 0.3s ease;
-        }
-
-        /* Show the card overlay on hover */
-        .card:hover .card-overlay {
-            opacity: 1;
-        }
-
-        /* Text and button styles inside the card overlay */
-        .card-text {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .cardNew {
-            position: relative;
-             /* 50% width with a little space between cards */
-            margin-bottom: 20px;
-        }
-
-        /* Card image styles */
-        .cardNew img {
-            width: 1266px;
-            height: auto;
-            display: block;
-        }
-
-        /* Card overlay styles */
-        .cardNew-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            opacity: 0; /* Initially hidden */
-            transition: opacity 0.3s ease;
-        }
-
-        /* Show the card overlay on hover */
-        .cardNew:hover .cardNew-overlay {
-            opacity: 1;
-        }
-
-        /* Text and button styles inside the card overlay */
-        .cardNew-text {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .card-button {
-            background-color: #fff;
-            color: #333;
-            padding: 10px 20px;
-            border: none;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        /* Style for primary button */
-.btn-primary {
-    background-color: #007bff; /* Primary button background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    border: none; /* Remove default button border */
-    border-radius: 5px; /* Rounded corners */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* Remove underlines from links (if used as a link) */
-    cursor: pointer; /* Show a pointer cursor on hover */
-}
-
-/* Style for primary button on hover */
-.btn-primary:hover {
-    background-color: #0056b3; /* Darker background color on hover */
-}
-
-      /* Media Query for Responsive Navbar */
-      @media screen and (max-width: 768px) {
-        .menu-icon {
-          display: block;
-        }
-
-        ul.navbar-menu {
-          flex-direction: column;
-          position: absolute;
-          top: 60px;
-          left: 0;
-          right: 0;
-          background-color: #333;
-          display: none;
-        }
-
-        ul.navbar-menu.show {
-          display: flex;
-        }
-
-        li.nav-item {
-          float: none;
-        }
-
-        li.nav-item a {
-          padding: 10px 20px;
-          text-align: left;
-          display: block;
-        }
-      }
-
-      /* Video container styles */
-      .video-container {
-        margin-top: 55px;
-        overflow: hidden;
-      }
-
-      .video-container video {
-        width: 100%;
-        height: auto;
-      }
-      .fixed-navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #333;
-        z-index: 100;
-      }
-      .airjordan {
-        text-align: center;
-      }
-    </style>
+      <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <div class="navbar fixed-navbar">
@@ -325,6 +75,7 @@
     <div class="video-container">
       <video src="./Assets/Nike Shoes.mp4" autoplay muted loop></video>
     </div>
+    
     <div class="airjordan">
       <h4>Nike Airjordan</h4>
       <h1 style="font-weight: bold">YOUR SUPPORT SYSTEM</h1>
@@ -369,7 +120,93 @@
             </div>
         </div>
     </div>
+    <div>
+        <h2>Featured</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="./Assets/images/2f5d8363-e3db-4190-a427-4883f4439e50.webp" alt="Featured">
+                <div class="card-overlay">
+                    <div class="card-text">Easy Everyday Essentials</div>
+                    <a href="#" class="card-button">Shop Cortez</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./Assets/images/9ca85d10-facf-4817-964c-d4f5925c0cdc.webp" alt="Featured">
+                <div class="card-overlay">
+                    <h4>Nike Yoga</h4>
+                    <div class="card-text">Comfort Made for the Mat</div>
+                    <a href="#" class="card-button">Shop</a>
+                </div>
+    </div>
+    <div>
+        <div class="product-header">
+          <h2>New Arrivals</h2>
+          <button class="shop-button">Shop</button>
+          <button class="nav-button">&lt;</button>
+          <button class="nav-button">&gt;</button>
+        </div>
+        <div class="product-container product-list">
+            <div class="product-card">
+                <img src="./Assets/images/1247bf75-da35-455f-9dce-7cd9b4526a95.webp" alt="Shoe">
+                <div class="product-card-overlay">
+                    <p class="product-price">Nike Air Max Pulse: ₹13,995</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+            </div>            
+            <div class="product-card">
+            <img src="./Assets/images/aa5a276b-715d-4da7-bac2-159edaed11b6.webp" alt="Shoe">
+            <div class="product-card-overlay">
+            <p class="product-price">Nike Air Max 90:  ₹9 995</p>
+            <a href="#" class="buy-button">Buy Now</a>
+        </div>
+            </div>
+            <div class="product-card">
+            <img src="./Assets/images/92e3e335-e95a-462d-a555-78f5b1d14cf4.webp" alt="Shoe">
+            <div class="product-card-overlay">
+            <p class="product-price">Nike Air Force 1'07:  ₹9 695</p>
+            <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        </div>
+            <div class="product-card">
+            <img src="./Assets/images/76c30d20-3e2b-4e77-bf42-7ffe21f5adc6.webp" alt="Shoe">
+            <div class="product-card-overlay">
+            <p class="product-price">Nike Air Max 97:  ₹16 695</p>
+            <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        </div>
+            <div class="product-card">
+            <img src="./Assets/images/97df260a-0f39-4451-883b-8e9f88471fef.webp" alt="Shoe">
+            <div class="product-card-overlay">
+            <p class="product-price">Nike Air Max 270:   ₹14 995</p>
+            <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        </div>
+            <div class="product-card">
+            <img src="./Assets/images/435d97b7-a132-4dd4-917c-3184a0e0453e.webp" alt="Shoe">
+            <div class="product-card-overlay">
+            <p class="product-price">Nike Tech Hera:   ₹9 695</p>
+            <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/shanmugamrskfamily/" target="_blank" class="icon-link">
+              Linkedln<i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Shanmugamrskfamily" target="_blank" class="icon-link">
+              GitHub<i class="fab fa-github"></i>
+            </a>
+          </div>
+          <p>&copy; <span id="copyright-year"></span> SHANMUGAM R. All Rights Reserved.</p>
+        </div>
+      </footer>      
     <script>
+const currentYear = new Date().getFullYear();
+document.getElementById("copyright-year").textContent = currentYear;
+
       function toggleMenu() {
         var navbarMenu = document.getElementById("navbar-menu");
         navbarMenu.classList.toggle("show");
