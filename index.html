@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Dancing+Script&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <style>
+      body {
+        font-family: "Croissant One";
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        font-family: "Dancing Script", sans-serif;
+        background-color: #333;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      .logo a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .menu-icon {
+        display: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+      }
+
+      ul.navbar-menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      li.nav-item {
+        float: right;
+      }
+
+      li.nav-item a {
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      ul.submenu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        background-color: #333;
+        display: none;
+        z-index: 1;
+      }
+
+      li.nav-item:hover ul.submenu {
+        display: block;
+      }
+
+      li.nav-item:hover ul.submenu li {
+        display: block;
+      }
+
+      ul.submenu li {
+        float: none;
+        text-align: left;
+        padding: 10px 20px;
+      }
+
+      ul.submenu li a {
+        color: white;
+        text-decoration: none;
+      }
+      .card-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Card styles */
+        .card {
+            position: relative;
+            width: calc(50% - 20px); /* 50% width with a little space between cards */
+            margin-bottom: 20px;
+        }
+
+        /* Card image styles */
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Card overlay styles */
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease;
+        }
+
+        /* Show the card overlay on hover */
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        /* Text and button styles inside the card overlay */
+        .card-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cardNew {
+            position: relative;
+             /* 50% width with a little space between cards */
+            margin-bottom: 20px;
+        }
+
+        /* Card image styles */
+        .cardNew img {
+            width: 1266px;
+            height: auto;
+            display: block;
+        }
+
+        /* Card overlay styles */
+        .cardNew-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease;
+        }
+
+        /* Show the card overlay on hover */
+        .cardNew:hover .cardNew-overlay {
+            opacity: 1;
+        }
+
+        /* Text and button styles inside the card overlay */
+        .cardNew-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-button {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Style for primary button */
+.btn-primary {
+    background-color: #007bff; /* Primary button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underlines from links (if used as a link) */
+    cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+/* Style for primary button on hover */
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+      /* Media Query for Responsive Navbar */
+      @media screen and (max-width: 768px) {
+        .menu-icon {
+          display: block;
+        }
+
+        ul.navbar-menu {
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+          background-color: #333;
+          display: none;
+        }
+
+        ul.navbar-menu.show {
+          display: flex;
+        }
+
+        li.nav-item {
+          float: none;
+        }
+
+        li.nav-item a {
+          padding: 10px 20px;
+          text-align: left;
+          display: block;
+        }
+      }
+
+      /* Video container styles */
+      .video-container {
+        margin-top: 55px;
+        overflow: hidden;
+      }
+
+      .video-container video {
+        width: 100%;
+        height: auto;
+      }
+      .fixed-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        z-index: 100;
+      }
+      .airjordan {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar fixed-navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <a style="font-size: 35px" href="#"
+            ><i class="fas fa-shoe-prints"></i> Nike. Just Do It!</a
+          >
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="navbar-menu" id="navbar-menu">
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-star"></i> New & Featured</a>
+            <ul class="submenu">
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Latest Shoes</a></li>
+              <li><a href="#">Latest Clothing</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-male"></i> Men</a>
+            <ul class="submenu">
+              <li><a href="#">New For Men</a></li>
+              <li><a href="#">Shoes</a></li>
+              <li><a href="#">Clothing</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">Shop All New</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-female"></i> Women</a>
+            <ul class="submenu">
+              <li><a href="#">New For Women</a></li>
+              <li><a href="#">Shoes</a></li>
+              <li><a href="#">Clothing</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">Shop All New</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="fas fa-child"></i> Kids</a>
+            <ul class="submenu">
+              <li><a href="#">New For Kids</a></li>
+              <li><a href="#">Shoes</a></li>
+              <li><a href="#">Clothing</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">Shop All New</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#">SNKRS</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="video-container">
+      <video src="./Assets/Nike Shoes.mp4" autoplay muted loop></video>
+    </div>
+    <div class="airjordan">
+      <h4>Nike Airjordan</h4>
+      <h1 style="font-weight: bold">YOUR SUPPORT SYSTEM</h1>
+      <p style="margin-top: 0px">
+        All-new ReactX foam, stretchy Flyknit and a wider midsole offer a system
+        of support that moves you smoothly through every stride.
+      </p>
+      <button class="btn-primary">Shop</button>
+    </div>
+    <div>
+        <h2>Just In</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="./Assets/images/504d5787-8150-41b8-b629-6b2337ffc283.webp" alt="shoe">
+                <div class="card-overlay">
+                    <p>Available on Nike App From: 28 Sep</p>
+                    <div class="card-text">LeBron XXI</div>
+                    <a href="#" class="card-button">Get it First</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./Assets/images/2b21d5fe-f48d-48df-834a-f45c95def4da.webp" alt="shoe">
+                <div class="card-overlay">
+                    
+                    <div class="card-text">Nike Calm Mule</div>
+                    <a href="#" class="card-button">Get it First</a>
+                </div>
+    </div>
+    <div>
+        <h2>Trending</h2>
+        <div class="cardNew">
+            <img src="./Assets/images/3f021283-7961-47af-ba6c-f7c080f8e2a0.webp" alt="Trending">
+            <div class="cardNew-overlay">
+                <div class="cardNew-text">
+                    <b>Serena Williams Design Crew Collection</b>
+                    <h1>MAKE A STATEMENT</h1>
+                    <p>The Fall 2023 SWDC continues the vision of the future of design,
+                        produced by a diverse team of creatives and inspired by Serena
+                        herself.</p>
+                </div>
+                <a href="#" class="card-button">Get it First</a>
+            </div>
+        </div>
+    </div>
+    <script>
+      function toggleMenu() {
+        var navbarMenu = document.getElementById("navbar-menu");
+        navbarMenu.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>
